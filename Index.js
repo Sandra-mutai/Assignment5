@@ -1,20 +1,17 @@
-const Kiosk = {
-    fruit: 'Mango'
-}
-
-Object.defineProperty(Kiosk, "getFruit", {
-    get : function () {
-        return this.fruit;
+class Kiosk {
+    constructor(fruits){
+    this.fruits = fruits || [];
     }
-});
-
-Object.defineProperty(Kiosk, "changeName", {
-    set : function (value) {
-        this.fruit = value;
+    addFruit(fruit) {
+    this.fruits.push(fruit);
     }
-});
-
-console.log(Kiosk.fruit);
-Kiosk.fruit = "banana"
-
-console.log(Kiosk.fruit); 
+    setFruit(fruit) {
+        this.addFruit(fruit);
+    }
+    getFruits() {
+        return this.fruits;
+    }
+    }
+    var kiosk = new Kiosk(['Mango']);
+    kiosk.setFruit("orange")
+    console.log(kiosk.getFruits());
